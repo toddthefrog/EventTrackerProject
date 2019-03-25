@@ -1,0 +1,19 @@
+package com.skilldistillery.event.services;
+
+import java.util.Optional;
+
+import com.skilldistillery.event.entities.Schedule;
+import com.skilldistillery.event.entities.User;
+
+
+public interface ScheduleService {
+	
+	Optional<User> getById(int pid);
+	
+	Schedule create(Schedule schedule);
+	
+	Boolean delete(int id);
+	
+	Schedule update(int id);
+	
+}

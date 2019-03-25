@@ -1,0 +1,68 @@
+package com.skilldistillery.event.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.event.controllers.repositories.ScheduleRepository;
+import com.skilldistillery.event.entities.Schedule;
+
+@Service
+public class ScheduleServiceImple implements ScheduleService {
+
+	@Autowired
+	private ScheduleRepository repo;
+
+	@Override
+	public List<Schedule> getAll() {
+		return repo.findAll();
+	}
+
+	@Override
+	public Optional<Schedule> getById(int id) {
+		Optional<Schedule> optional = repo.findById(id);
+		if (optional.isPresent()) {
+			return optional;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public Schedule create(Schedule schedule) {
+		return repo.saveAndFlush(schedule);
+	}
+
+	@Override
+	public Boolean delete(int id) {
+		Boolean result = false;
+		Optional<Schedule> optional = repo.findById(id);
+		if (optional.isPresent()) {
+			Schedule schedule = optional.get();
+			schedule.setIsActive(false);
+			repo.save(schedule);
+			result = true;
+			return result;
+		} else {
+			return result;
+		}
+	}
+
+	@Override
+	public Schedule update(int id, Schedule schedule) {
+		Optional<Schedule> optional = repo.findById(id);
+		if (optional.isPresent()) {
+			Schedule managed = optional.get();
+			managed.setFirstName(schedule.getFirstName());
+			managed.setLastName(schedule.getLastName());
+			managed.setIsActive(schedule.getIsActive());
+			repo.saveAndFlush(managed);
+			return managed;
+		} else {
+			return null;
+		}
+		
+	}
+}

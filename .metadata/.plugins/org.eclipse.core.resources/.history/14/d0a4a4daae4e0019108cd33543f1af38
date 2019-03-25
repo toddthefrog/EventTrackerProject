@@ -1,0 +1,14 @@
+package com.skilldistillery.event.services;
+
+import com.skilldistillery.event.entities.Schedule;
+
+
+public interface ScheduleService {
+	
+	Schedule create(Schedule schedule);
+	
+	Boolean delete(int id);
+	
+	Schedule update(int id);
+	
+}

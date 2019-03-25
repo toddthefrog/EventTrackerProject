@@ -1,0 +1,45 @@
+package com.skilldistillery.event.entities;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Schedule {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "user_id")
+	private int userId;
+	
+	@Column(name = "prescriptionId")
+	private int prescription_id;
+	
+	@Column(name = "prescriptionId")
+	private int pillSizeInUg;
+	
+	private int doseInUg;
+	
+	private int timesDaily;
+	
+	private int isActive;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "prescription")
+	private List<Prescription> prescription;
+	
+	
+
+}

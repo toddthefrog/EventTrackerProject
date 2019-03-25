@@ -1,0 +1,5 @@
+package com.skilldistillery.event.entities;
+
+public class User {
+
+}

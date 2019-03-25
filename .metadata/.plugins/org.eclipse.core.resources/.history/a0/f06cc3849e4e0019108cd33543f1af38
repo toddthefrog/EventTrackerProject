@@ -1,0 +1,13 @@
+package com.skilldistillery.event.services;
+
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private CategoryRepository repo;
+	
+	@Override
+	public List<User> getAll() {
+		return repo.findAll();
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.skilldistillery.event.services;
+
+public class UserServiceImpl implements UserService {
+
+}
