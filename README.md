@@ -2,7 +2,7 @@
 
 For this project we were instructed to create a web application with REST API endpoints that would allow full CRUD functionality.  My project allows a user to schedule when they need to take their medicine.  This is tracked through two mySQL tables called user and schedule.
 
-## Expected Routes for Users:
+## REST Routes for Users:
 
 | Return Type   | Route                   | Functionality                  |
 |---------------|-------------------------|--------------------------------|
@@ -12,7 +12,7 @@ For this project we were instructed to create a web application with REST API en
 | `Post`        |`PUT api/user/{id}`      | Updates an existing user by id |
 | `Boolean`     |`DELETE api/user/{id}`   | Deletes an existing user by id |
 
-## Expected Routes for Schedules:
+## REST Routes for Schedules:
 
 | Return Type       | Route                                 | Functionality                      |
 |-------------------|---------------------------------------|------------------------------------|
