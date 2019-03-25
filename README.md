@@ -22,8 +22,8 @@ For this project we were instructed to create a web application with REST API en
 | `Post`            |`PUT api/user/{id}/schedule/{id}`      | Updates an existing schedule by id |
 | `Boolean`         |`DELETE api/user/{id}/schedule/{id}`   | Deletes an existing schedule by id |
 
-## REST Routes for Schedules:
-![Screenshot](err.png)
+## Database Schema:
+![Screenshot](schema.png)
 
 ## Technologies Used:
 * Java 8
