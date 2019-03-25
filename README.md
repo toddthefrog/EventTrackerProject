@@ -23,7 +23,7 @@ For this project we were instructed to create a web application with REST API en
 | `Boolean`         |`DELETE api/user/{id}/schedule/{id}`   | Deletes an existing schedule by id |
 
 ## Database Schema:
-![Screenshot](schema.png)
+![Screenshot](schema_diagram.png)
 
 ## Technologies Used:
 * Java 8
