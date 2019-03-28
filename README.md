@@ -8,8 +8,8 @@ For this project we were instructed to create a web application with REST API en
 |---------------|-------------------------|--------------------------------|
 | `List<User>`  |`GET api/user/`          | Gets all users                 |
 | `User`        |`GET api/user/{id}`      | Gets one user by id            |
-| `Post`        |`POST api/user/`         | Creates a new user             |
-| `Post`        |`PUT api/user/{id}`      | Updates an existing user by id |
+| `User`        |`POST api/user/`         | Creates a new user             |
+| `User`        |`PUT api/user/{id}`      | Updates an existing user by id |
 | `Boolean`     |`DELETE api/user/{id}`   | Deletes an existing user by id |
 
 ## REST Routes for Schedules:
@@ -18,8 +18,8 @@ For this project we were instructed to create a web application with REST API en
 |-------------------|---------------------------------------|------------------------------------|
 | `List<Schedule>`  |`GET api/user/{id}/schedule/`          | Gets all schedules by user         |
 | `Schedule`        |`GET api/user/{id}/schedule/{id}`      | Gets one schedule by id            |
-| `Post`            |`POST api/user/{id}/schedule/{id}`     | Creates a new schedule             |
-| `Post`            |`PUT api/user/{id}/schedule/{id}`      | Updates an existing schedule by id |
+| `Schedule`        |`POST api/user/{id}/schedule/{id}`     | Creates a new schedule             |
+| `Schedule`        |`PUT api/user/{id}/schedule/{id}`      | Updates an existing schedule by id |
 | `Boolean`         |`DELETE api/user/{id}/schedule/{id}`   | Deletes an existing schedule by id |
 
 ## Database Schema:
