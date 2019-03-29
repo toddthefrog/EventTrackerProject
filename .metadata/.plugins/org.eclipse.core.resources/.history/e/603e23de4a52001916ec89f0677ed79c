@@ -24,7 +24,7 @@ public class UserController {
 	@Autowired
 	private UserService us;
 	
-	@GetMapping(path = "/users")
+	@GetMapping(path = "/users/")
 	public List<User> index() {
 		return us.getAll();
 	}
@@ -34,7 +34,7 @@ public class UserController {
 		return us.getById(id);
 	}
 	
-	@PostMapping(path = "users")
+	@PostMapping(path = "users/")
 	public User create(@RequestBody User user) {
 		us.create(user);
 		return user;

@@ -29,7 +29,7 @@ public class ScheduleController {
 	@Autowired
 	private UserService us;
 
-	@GetMapping(path = "users/{uid}/schedules")
+	@GetMapping(path = "users/{uid}/schedules/")
 	public List<Schedule> index(@PathVariable("uid") int uid) {
 		Optional<User> optional = us.getById(uid);
 		User user;
@@ -59,7 +59,7 @@ public class ScheduleController {
 		return schedule;
 	}
 
-	@PostMapping(path = "users/{uid}/schedules")
+	@PostMapping(path = "users/{uid}/schedules/")
 	public Schedule create(@PathVariable("uid") int id, @RequestBody Schedule schedule) {
 		Optional<User> optional = us.getById(id);
 		if (optional.isPresent()) {
