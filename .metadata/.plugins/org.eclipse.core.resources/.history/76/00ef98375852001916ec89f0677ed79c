@@ -41,7 +41,8 @@ public class UserServiceImpl implements UserService {
 		Optional<User> optional = repo.findById(id);
 		if (optional.isPresent()) {
 			User user = optional.get();
-			repo.delete(user);
+			user.setIsActive(false);
+			repo.save(user);
 			result = true;
 			return result;
 		} else {
@@ -50,12 +51,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User update(int id, User user) {
+	public User update(int id, User user, HttpServletRequest request, HttpServletResponse response) {
 		Optional<User> optional = repo.findById(id);
 		if (optional.isPresent()) {
 			User managed = optional.get();
-			user.setId(managed.getId());
-			repo.saveAndFlush(user);
+			managed.setId(user.getId());
+			managed.setFirstName(user.getFirstName());
+			managed.setLastName(user.getLastName());
+			repo.saveAndFlush(managed);
 			return managed;
 		} else {
 			return null;

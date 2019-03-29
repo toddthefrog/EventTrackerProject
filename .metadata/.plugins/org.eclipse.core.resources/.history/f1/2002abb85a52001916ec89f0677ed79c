@@ -67,7 +67,7 @@ public class UserController {
 		} else {
 			response.setStatus(400);
 		}
-		return b;
+		return null;
 	}
 	
 }

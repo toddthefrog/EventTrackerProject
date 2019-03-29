@@ -64,10 +64,8 @@ public class UserController {
 		Boolean b = us.delete(id);
 		if (b == true) {
 			response.setStatus(202);
-		} else {
-			response.setStatus(400);
 		}
-		return b;
+		return null;
 	}
 	
 }

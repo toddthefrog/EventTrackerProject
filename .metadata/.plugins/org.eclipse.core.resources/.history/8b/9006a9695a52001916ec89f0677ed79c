@@ -60,14 +60,8 @@ public class UserController {
 	}
 	
 	@DeleteMapping(path = "users/{id}")
-	public Boolean delete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response) {
-		Boolean b = us.delete(id);
-		if (b == true) {
-			response.setStatus(202);
-		} else {
-			response.setStatus(400);
-		}
-		return b;
+	public Boolean delete(@PathVariable int id) {
+		return us.delete(id);
 	}
 	
 }
