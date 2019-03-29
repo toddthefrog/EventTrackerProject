@@ -4,3 +4,4 @@ build
 target
 *.war
 .gradle
+.metadata
