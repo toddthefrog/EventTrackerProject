@@ -29,7 +29,7 @@ public class ScheduleController {
 	@Autowired
 	private UserService us;
 
-	@GetMapping(path = "users/{uid}/schedules/")
+	@GetMapping(path = "user/{uid}/schedule/")
 	public List<Schedule> index(@PathVariable("uid") int uid) {
 		Optional<User> optional = us.getById(uid);
 		User user;
@@ -43,7 +43,7 @@ public class ScheduleController {
 		}
 	}
 
-	@GetMapping(path = "users/{uid}/schedules/{sid}")
+	@GetMapping(path = "user/{uid}/schedule/{sid}")
 	public Schedule select(@PathVariable("uid") int uid, @PathVariable("sid") int sid) {
 		Optional<User> optional = us.getById(uid);
 		User user;
@@ -59,7 +59,7 @@ public class ScheduleController {
 		return schedule;
 	}
 
-	@PostMapping(path = "users/{uid}/schedules/")
+	@PostMapping(path = "user/{uid}/schedule/")
 	public Schedule create(@PathVariable("uid") int id, @RequestBody Schedule schedule) {
 		Optional<User> optional = us.getById(id);
 		if (optional.isPresent()) {
@@ -71,12 +71,12 @@ public class ScheduleController {
 		}
 	}
 
-	@PutMapping(path = "users/{uid}/schedules/{sid}")
+	@PutMapping(path = "user/{uid}/schedule/{sid}")
 	public Schedule update(@PathVariable("sid") int id, @RequestBody Schedule schedule) {
 		return ss.update(id, schedule);
 	}
 	
-	@DeleteMapping(path = "users/{uid}/schedules/{sid}")
+	@DeleteMapping(path = "user/{uid}/schedule/{sid}")
 	public Boolean delete(@PathVariable("sid") int sid) {
 		return ss.delete(sid);
 	}

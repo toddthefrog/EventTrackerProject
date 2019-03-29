@@ -18,15 +18,19 @@ import com.skilldistillery.event.services.UserService;
 
 @RestController
 @RequestMapping("api")
-public class ScheduleController {
+public class UserController {
 
 	// Post Service
 	@Autowired
 	private UserService us;
 	
+	@GetMapping(path = "/user/")
+	public List<User> index() {
+		return us.getAll();
+	}
 	
-	@GetMapping(path = "user/{uid}/schedule/{sid}")
-	public Optional<User> select(@PathVariable int uid, @PathVariable int pid) {
+	@GetMapping(path = "user/{id}")
+	public Optional<User> select(@PathVariable int id) {
 		return us.getById(id);
 	}
 	
@@ -36,14 +40,14 @@ public class ScheduleController {
 		return user;
 	}
 	
-	@DeleteMapping(path = "user/{id}")
-	public Boolean create(@PathVariable int id) {
-		return us.delete(id);
-	}
-	
 	@PutMapping(path = "user/{id}")
 	public User update(@RequestBody User user, @PathVariable int id) {
 		return us.update(id, user);
+	}
+	
+	@DeleteMapping(path = "user/{id}")
+	public Boolean delete(@PathVariable int id) {
+		return us.delete(id);
 	}
 	
 }

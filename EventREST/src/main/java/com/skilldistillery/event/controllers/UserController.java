@@ -24,28 +24,28 @@ public class UserController {
 	@Autowired
 	private UserService us;
 	
-	@GetMapping(path = "/user/")
+	@GetMapping(path = "/users/")
 	public List<User> index() {
 		return us.getAll();
 	}
 	
-	@GetMapping(path = "user/{id}")
+	@GetMapping(path = "users/{id}")
 	public Optional<User> select(@PathVariable int id) {
 		return us.getById(id);
 	}
 	
-	@PostMapping(path = "user/")
+	@PostMapping(path = "users/")
 	public User create(@RequestBody User user) {
 		us.create(user);
 		return user;
 	}
 	
-	@PutMapping(path = "user/{id}")
+	@PutMapping(path = "users/{id}")
 	public User update(@RequestBody User user, @PathVariable int id) {
 		return us.update(id, user);
 	}
 	
-	@DeleteMapping(path = "user/{id}")
+	@DeleteMapping(path = "users/{id}")
 	public Boolean delete(@PathVariable int id) {
 		return us.delete(id);
 	}
