@@ -54,9 +54,10 @@ public class UserController {
 		if(updatedUser != null) {
 			response.setStatus(202);
 		} else {
+			updatedUser = null;
 			response.setStatus(400);
 		}
-		return us.update(id, user);
+		return updatedUser;
 	}
 	
 	@DeleteMapping(path = "users/{id}")

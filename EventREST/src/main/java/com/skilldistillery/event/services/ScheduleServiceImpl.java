@@ -23,25 +23,25 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public Schedule update(int id, Schedule schedule) {
-		Schedule managed = repo.getScheduleById(id);
-		managed.setId(repo.getScheduleById(id).getId());
-		managed.setDoseInUg(schedule.getDoseInUg());
-		managed.setIsActive(schedule.getIsActive());
-		managed.setPillSizeInUg(schedule.getPillSizeInUg());
-		managed.setPrescriptionName(schedule.getPrescriptionName());
-		managed.setTimesDaily(schedule.getTimesDaily());
-		repo.saveAndFlush(managed);
-		return managed;
+	public Schedule update(int uid, int sid, Schedule schedule) {
+		Schedule managed = repo.getScheduleById(sid);
+		Schedule newSchedule;
+		if (managed.getUser().getId() == uid) {
+			schedule.setId(managed.getId());
+			schedule.setUser(managed.getUser());
+			newSchedule = repo.saveAndFlush(schedule);
+		} else {
+			newSchedule = null;
+		}
+		return newSchedule;
 	}
 	
 	@Override
 	public Boolean delete(int id) {
 		Boolean result = false;
+		Schedule schedule = repo.getScheduleById(id);
 		if (repo.existsById(id)) {
-			Schedule schedule = repo.getScheduleById(id);
-			schedule.setIsActive(false);
-			repo.saveAndFlush(schedule);
+			repo.delete(schedule);
 			result = true;
 			return result;
 		} else {

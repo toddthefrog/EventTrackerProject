@@ -11,6 +11,6 @@ public interface ScheduleService {
 	
 	Boolean delete(int id);
 	
-	Schedule update(int id, Schedule schedule);
+	Schedule update(int uid, int sid, Schedule schedule);
 	
 }

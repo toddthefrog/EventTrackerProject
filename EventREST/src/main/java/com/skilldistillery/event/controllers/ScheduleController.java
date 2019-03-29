@@ -3,6 +3,9 @@ package com.skilldistillery.event.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,27 +61,41 @@ public class ScheduleController {
 		}
 		return schedule;
 	}
-
+	
 	@PostMapping(path = "users/{uid}/schedules")
-	public Schedule create(@PathVariable("uid") int id, @RequestBody Schedule schedule) {
+	public Schedule create(@PathVariable("uid") int id, @RequestBody Schedule schedule, HttpServletRequest request, HttpServletResponse response) {
 		Optional<User> optional = us.getById(id);
 		if (optional.isPresent()) {
 			schedule.setUser(optional.get());
+			response.setStatus(201);
 			ss.create(schedule);
 			return schedule;
 		} else {
+			response.setStatus(400);
 			return null;
 		}
 	}
 
 	@PutMapping(path = "users/{uid}/schedules/{sid}")
-	public Schedule update(@PathVariable("sid") int id, @RequestBody Schedule schedule) {
-		return ss.update(id, schedule);
+	public Schedule update(@PathVariable("uid") int uid, @PathVariable("sid") int sid, @RequestBody Schedule schedule, HttpServletRequest request, HttpServletResponse response) {
+		Schedule updatedSchedule = ss.update(uid, sid, schedule);
+		if (updatedSchedule != null) {
+			response.setStatus(202);
+		} else {
+			response.setStatus(400);
+		}
+		return schedule;
 	}
 	
 	@DeleteMapping(path = "users/{uid}/schedules/{sid}")
-	public Boolean delete(@PathVariable("sid") int sid) {
-		return ss.delete(sid);
+	public Boolean delete(@PathVariable("sid") int sid, HttpServletRequest request, HttpServletResponse response) {
+		Boolean b = ss.delete(sid);
+		if (b == true) {
+			response.setStatus(202);
+		} else {
+			response.setStatus(400);
+		}
+		return b;
 	}
 	
 	
