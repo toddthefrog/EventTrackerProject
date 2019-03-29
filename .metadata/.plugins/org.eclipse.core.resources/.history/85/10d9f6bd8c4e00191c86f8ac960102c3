@@ -1,6 +1,0 @@
-package com.skilldistillery.event.entities;
-
-@Entity
-public class User {
-
-}

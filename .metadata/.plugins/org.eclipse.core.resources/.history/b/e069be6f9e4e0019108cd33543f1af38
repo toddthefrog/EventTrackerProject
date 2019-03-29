@@ -1,7 +1,0 @@
-package com.skilldistillery.event.services;
-
-public interface UserService {
-	
-	List<User> getAll();
-	
-}

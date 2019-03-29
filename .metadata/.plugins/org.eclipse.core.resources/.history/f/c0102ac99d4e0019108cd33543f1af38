@@ -1,5 +1,0 @@
-package com.skilldistillery.event.controllers.repositories;
-
-public interface PostRepository extends JpaRepository<Post, Integer>{
-
-}
