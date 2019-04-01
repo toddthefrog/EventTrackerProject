@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST Video Store</title>
+<script type="text/javascript" src="js/filmFunctions.js"></script>
+</head>
+<body>
+    <h1>Welcome to REST Video Store</h1>
+
+    <form name="filmForm">
+        <input type="number" name="filmId">
+        <button name="lookup">Get Film by Id</button>
+    </form>
+    <div id="output">
+        <div id="filmData"></div>
+        <div id="actorData"></div>
+    </div>
+
+    <hr>
+    <div id='addFilmDiv'>
+        <form name='addFilmForm'>
+            Title: <input name='title' type='text'> <br>
+            Description: <input name='description' type='text'> <br>
+            Release Year: <input name='releaseYear' type='number'> <br>
+            Length: <input name='length' type='number'> <br> Rating:
+            <input name='rating' type='text'> <br>
+            <button id='addFilm'>Add Film</button>
+        </form>
+    </div>
+
+</body>
+</html>
